@@ -18,6 +18,7 @@ def gstreamer_pipeline(
     sensor_id=0,
     capture_width=1920,
     capture_height=1080,
+	capture_format="NV12",
     display_width=960,
     display_height=540,
     framerate=30,
@@ -25,7 +26,7 @@ def gstreamer_pipeline(
 ):
     return (
         "nvarguscamerasrc sensor-id=%d !"
-        "video/x-raw(memory:NVMM), width=(int)%d, height=(int)%d, framerate=(fraction)%d/1 ! "
+        "video/x-raw(memory:NVMM), width=(int)%d, height=(int)%d, format=(string)%d, framerate=(fraction)%d/1 ! "
         "nvvidconv flip-method=%d ! "
         "video/x-raw, width=(int)%d, height=(int)%d, format=(string)BGRx ! "
         "videoconvert ! "
@@ -34,6 +35,7 @@ def gstreamer_pipeline(
             sensor_id,
             capture_width,
             capture_height,
+			capture_format,
             framerate,
             flip_method,
             display_width,
