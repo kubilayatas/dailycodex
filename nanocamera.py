@@ -5,7 +5,7 @@ Using the NanoCamera with CSI Camera
 """
 import cv2
 
-# from nanocamera.NanoCam import Camera
+#from nanocamera.NanoCam import Camera
 import nanocamera as nano
 
 if __name__ == '__main__':
